@@ -72,7 +72,7 @@ class LoginUserSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         user = authenticate(username=data["username"], password=data["password"])
-        if user == None:
+        if user is None:
             raise serializers.ValidationError(
                 {"error": "Invalid Username And Password"}
             )
